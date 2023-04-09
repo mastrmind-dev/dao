@@ -1,0 +1,19 @@
+pragma solidity 0.8.18^;
+
+contract DAO{
+    struct Proposal{
+        string description;
+        uint32 voteCount;
+        bool executed;
+    }
+
+    struct Member{
+        address memberAddress;
+        uint memberSince;
+    }
+
+    address[] public members;
+    mapping(address => Member) public memberInfo;
+    mapping(address => mapping(uint32 => bool)) public votes;
+    Proposal[] public proposals;
+}
